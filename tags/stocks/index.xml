@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stocks on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/stocks/</link>
+    <description>Recent content in Stocks on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Fri, 01 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/stocks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Network Analysis of the Philippine Stock Market</title>
+      <link>https://cyntwikip.github.io/project/ph-stocks-network/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/ph-stocks-network/</guid>
+      <description>
+
+&lt;p&gt;Authors: Tristan Alba and Jude Teves&lt;/p&gt;
+
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;While the movement of stock prices is considered to follow a random walk, each fluctuation does not occur independently but are highly intertwined with the industry and sector a stock belongs to. This relationship of stocks with each other can be effectively mapped using correlation-based networks. In particular, these are networks formed by calculating the correlation between each pair of time series of stock prices with which their links are given by the threshold level of correlation determined from the onset. Not only does this graph capture the complex nature of nancial markets, but is also helpful in revealing internal structure and hidden information in the market. More importantly so, with the fear from the recent financial crisis and bubbles across Asian and Western economies, there is more need to carefully monitor co-movement of stocks and overall dynamics of the market.&lt;/p&gt;
+
+&lt;p&gt;This network approach in studying nancial markets has been implemented by Tse, et al., Dimitrios, et al., and Wen, e al. where they studied stock relationships primarily using correlations. Typically, the resulting networks are huge and requires filtering to reduce complexity of analysis. It is well observed in these literature how stocks network follow a scale-free distribution where a few stocks have heavy influence over many. From exactly this knowledge, programs in asset allocation and risk management involving high degree stocks are derived. Furthermore, correlation analysis can be used in portfolio optimization across domestic and international equities and in effective execution of pairs trading strategies.&lt;/p&gt;
+
+&lt;p&gt;In this work, we study the relationship between stocks in the Philippine Stock Exchange (PSE) market from 2006 to present. In detail, we look at the temporal evolution of the stocks network attributes, noting stability and changes in the network over time. We also attempt to characterize the topology across various events in history. Lastly, we demonstrate the feasibility of creating a portfolio strategy through the network approach.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this study, we analyzed the Philippine Stock Market from a network science perspective. We observed how topological parameters vary greatly with time. Furthermore, a degree-based index can serve as viable basis for a portfolio that matches the overall performance of the market. The very high correlation with existing indices such as the PSE All Shares and PSE Index further supports this claim. With limited resources, investors must allocate their funds wisely to stocks that would allow them to outpace or ride the growth of the market. Through correlation-based networks, trading strategies and portfolios can be built to arm investors to take advantage of the market.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

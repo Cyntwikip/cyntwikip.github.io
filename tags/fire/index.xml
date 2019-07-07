@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fire on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/fire/</link>
+    <description>Recent content in Fire on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Fri, 01 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/fire/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Crowd Evacuation Dynamics</title>
+      <link>https://cyntwikip.github.io/project/crowd-evacuation-dynamics/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/crowd-evacuation-dynamics/</guid>
+      <description>&lt;p&gt;Authors: Tristan Alba, Prince Javier, and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;Created a cellular automata model that simulates how people evacuate in the case of a fire emergency.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./evac_mrt.gif&#34; alt=&#34;gif&#34; /&gt;
+&lt;img src=&#34;./evac_msds_20.gif&#34; alt=&#34;gif&#34; /&gt;
+&lt;img src=&#34;./evac_intersection_40.gif&#34; alt=&#34;gif&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

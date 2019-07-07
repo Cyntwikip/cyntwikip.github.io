@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emoji on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/emoji/</link>
+    <description>Recent content in Emoji on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Identification of People’s Interests Using Emoji</title>
+      <link>https://cyntwikip.github.io/project/tweet-emoji/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/tweet-emoji/</guid>
+      <description>&lt;p&gt;Authors: Aian Rosales and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;People’s interests in a certain area, Makati to be specific, are identified using the people’s tweets with certain emojis. Using Latent Dirichlet Allocation as a clustering technique, tweets with certain emojis can be grouped into 4 major clusters: Food Porn, Current Events, Happy Travels, and K-Pop. The results seem to reflect the overall set of topics that even non-emoji users could have been discussing as well. Themes can be used for guiding businesses in setting up new brand campaigns or releasing new products. Moreover, understanding emojis can further advance machine’s ability to learn context in chat-based conversations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./wordcloud_groups.jpg&#34; alt=&#34;jpg&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

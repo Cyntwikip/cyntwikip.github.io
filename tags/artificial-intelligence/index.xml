@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Artificial Intelligence on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/artificial-intelligence/</link>
+    <description>Recent content in Artificial Intelligence on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Thu, 20 Jun 2019 08:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Science Caravan 2019</title>
+      <link>https://cyntwikip.github.io/talk/data-science-caravan-2019/</link>
+      <pubDate>Thu, 20 Jun 2019 08:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/talk/data-science-caravan-2019/</guid>
+      <description>&lt;!-- &lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+Slides can be added in a few ways:
+
+- **Create** slides using Academic&#39;s [*Slides*](https://sourcethemes.com/academic/docs/managing-content/#create-slides) feature and link using `slides` parameter in the front matter of the talk file
+- **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file
+- **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
+
+Further talk details can easily be added to this page using *Markdown* and $\rm \LaTeX$ math code. --&gt;
+
+&lt;p&gt;Our aim is to do the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;discuss the 4th industrial revolution, vis-a-vis the state of data science in the Philippines&lt;/li&gt;
+&lt;li&gt;describe what data science can do to improve the lives of the Filipinos&lt;/li&gt;
+&lt;li&gt;demonstrate various real-world applications of data science in our everyday lives&lt;/li&gt;
+&lt;li&gt;give a workshop on data-driven decision making&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;The following are pictures taken during the event.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./data_science_caravan_2019_img01.jpg&#34; alt=&#34;img 01&#34; /&gt;
+&lt;img src=&#34;./data_science_caravan_2019_img02.jpg&#34; alt=&#34;img 02&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./data_science_caravan_2019_img00.jpg&#34; alt=&#34;img 00&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Power Demand Forecasting</title>
+      <link>https://cyntwikip.github.io/project/capstone/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/capstone/</guid>
+      <description>&lt;p&gt;This is our thesis for the Master of Science in Data Science program. Due to its confidentiality, no additional details will be provided.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Global AI Bootcamp Philippines</title>
+      <link>https://cyntwikip.github.io/talk/global-ai-bootcamp/</link>
+      <pubDate>Sat, 15 Dec 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/talk/global-ai-bootcamp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PaNet</title>
+      <link>https://cyntwikip.github.io/project/panet/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/panet/</guid>
+      <description>&lt;p&gt;Authors: Adrian Galido, Shehab Ibrahim, Titus Jungao, and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;Deep-Learning based Skin Cancer Detection&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>X-Ray Machine Vision</title>
+      <link>https://cyntwikip.github.io/project/xray-web/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/xray-web/</guid>
+      <description>&lt;p&gt;Authors: Titus Jungao and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;Web application for detecting cancer given x-ray images&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Generating Music using AI</title>
+      <link>https://cyntwikip.github.io/project/music-ai/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/music-ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sea Level Prediction</title>
+      <link>https://cyntwikip.github.io/project/tidal-range/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/tidal-range/</guid>
+      <description>&lt;p&gt;Authors: Trissa Carvajal-Amanse, Joshua Hiwatig, Aian Rosales, and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;Predicted the tidal range for the 4 major ports in the Philippines using 70 years worth of historical data.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

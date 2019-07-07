@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://cyntwikip.github.io/courses/example/example1/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/courses/example/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/courses/example/example2/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/talk-ignore/example/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/talk-ignore/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/hidden/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/artificial-intelligence/</loc>
+    <lastmod>2019-06-20T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/data-science/</loc>
+    <lastmod>2019-06-20T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/talk/data-science-caravan-2019/</loc>
+    <lastmod>2019-06-20T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/industry-4.0/</loc>
+    <lastmod>2019-06-20T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/talk/</loc>
+    <lastmod>2019-06-20T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/technology/</loc>
+    <lastmod>2019-06-20T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/deep-learning/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/energy/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/capstone/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/authors/admin/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication_types/3/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication/preprint/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/authors/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication_types/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/source-themes/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/agent-based-model/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/big-data/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/cloud-computing/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/complex-systems/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/crowd-dynamics/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/crowd-evacuation-dynamics/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/fire/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/ph-stocks-network/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/network-science/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/recommender-system/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/stocks/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/subreddit-recommender/</loc>
+    <lastmod>2019-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/post/jupyter/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/post/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/talk/global-ai-bootcamp/</loc>
+    <lastmod>2018-12-15T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/cancer/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/computer-vision/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/panet/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/web-application/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/xray-web/</loc>
+    <lastmod>2018-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/dashboard/</loc>
+    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/global-inequality/</loc>
+    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/global-inequality-viz/</loc>
+    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/visualization/</loc>
+    <lastmod>2018-10-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/art/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/clustering/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/data-mining/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/emoji/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/music-ai/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/tweet-emoji/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/machine-learning/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/music/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/tweet/</loc>
+    <lastmod>2018-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project/tidal-range/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/tide/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/.net/</loc>
+    <lastmod>2017-10-21T09:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/firebase-analytics/</loc>
+    <lastmod>2017-10-21T09:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/microsoft/</loc>
+    <lastmod>2017-10-21T09:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/mobile-applications/</loc>
+    <lastmod>2017-10-21T09:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/xamarin/</loc>
+    <lastmod>2017-10-21T09:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/talk/firebase-analytics/</loc>
+    <lastmod>2017-10-21T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/demo/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project-ignore/external-project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project-ignore/internal-project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/project-ignore/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/tags/academic/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/post/getting-started/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication_types/2/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication/journal-article/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/authors/robert-ford/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication_types/1/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/publication/conference-paper/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyntwikip.github.io/courses/</loc>
+  </url>
+  
+</urlset>
