@@ -187,9 +187,9 @@ Further talk details can easily be added to this page using *Markdown* and $\rm 
 
 &lt;p&gt;Created a cellular automata model that simulates how people evacuate in the case of a fire emergency.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;./evac_mrt.gif&#34; alt=&#34;gif&#34; /&gt;
-&lt;img src=&#34;./evac_msds_20.gif&#34; alt=&#34;gif&#34; /&gt;
-&lt;img src=&#34;./evac_intersection_40.gif&#34; alt=&#34;gif&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./evac_mrt.gif&#34; alt=&#34;MRT gif&#34; /&gt;
+&lt;img src=&#34;./evac_msds_20.gif&#34; alt=&#34;MSDS Caseroom gif&#34; /&gt;
+&lt;img src=&#34;./evac_intersection_40.gif&#34; alt=&#34;Intersection gif&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -224,6 +224,18 @@ Further talk details can easily be added to this page using *Markdown* and $\rm 
       
       <guid>https://cyntwikip.github.io/project/subreddit-recommender/</guid>
       <description>&lt;p&gt;Authors: Titus Jungao and Jude Teves&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Civilization Simulation</title>
+      <link>https://cyntwikip.github.io/project/civ-simulation/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/civ-simulation/</guid>
+      <description>&lt;p&gt;Created a cellular automata model that simulates how different human races propagate.&lt;/p&gt;
+
+&lt;!-- ![Civ gif](./Civ-world-2.gif) --&gt;
 </description>
     </item>
     
@@ -538,6 +550,18 @@ $$&lt;/p&gt;
     </item>
     
     <item>
+      <title>Donors Choose Recommendation System</title>
+      <link>https://cyntwikip.github.io/project/donors-choose/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/donors-choose/</guid>
+      <description>&lt;p&gt;Authors: Tristan Alba, Prince Javier, and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;We have created a recommender system and a &lt;a href=&#34;http://cyntwikip-choosedonors.herokuapp.com/&#34; target=&#34;_blank&#34;&gt;web application&lt;/a&gt; for it as our entry for the &lt;a href=&#34;https://www.kaggle.com/donorschoose/io&#34; target=&#34;_blank&#34;&gt;Donors Choose Kaggle competition&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Sea Level Prediction</title>
       <link>https://cyntwikip.github.io/project/tidal-range/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
@@ -556,6 +580,16 @@ $$&lt;/p&gt;
       
       <guid>https://cyntwikip.github.io/talk/firebase-analytics/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>RECHORD</title>
+      <link>https://cyntwikip.github.io/project/rechord/</link>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/rechord/</guid>
+      <description>&lt;p&gt;Implemented a system which can detect notes, basic chords, and complex chords with 100% accuracy in real-time if they are played one at a time. However, if a song is played continuously in real-time, the accuracy is 91% for any music which has a tempo of 2 seconds. Slower tempo equates to higher accuracy and vice-versa. This is due to the temporal resolution of the system. The scope of this research is that it is specific to a guitar, though it can be extended to all stringed instruments.&lt;/p&gt;
+</description>
     </item>
     
     <item>

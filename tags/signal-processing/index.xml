@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Signal Processing on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/signal-processing/</link>
+    <description>Recent content in Signal Processing on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Thu, 01 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/signal-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RECHORD</title>
+      <link>https://cyntwikip.github.io/project/rechord/</link>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/rechord/</guid>
+      <description>&lt;p&gt;Implemented a system which can detect notes, basic chords, and complex chords with 100% accuracy in real-time if they are played one at a time. However, if a song is played continuously in real-time, the accuracy is 91% for any music which has a tempo of 2 seconds. Slower tempo equates to higher accuracy and vice-versa. This is due to the temporal resolution of the system. The scope of this research is that it is specific to a guitar, though it can be extended to all stringed instruments.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -66,6 +66,16 @@ Further talk details can easily be added to this page using *Markdown* and $\rm 
     </item>
     
     <item>
+      <title>Subreddit Recommender System</title>
+      <link>https://cyntwikip.github.io/project/subreddit-recommender/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/subreddit-recommender/</guid>
+      <description>&lt;p&gt;Authors: Titus Jungao and Jude Teves&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Global AI Bootcamp Philippines</title>
       <link>https://cyntwikip.github.io/talk/global-ai-bootcamp/</link>
       <pubDate>Sat, 15 Dec 2018 09:00:00 +0000</pubDate>
@@ -105,6 +115,32 @@ Further talk details can easily be added to this page using *Markdown* and $\rm 
       
       <guid>https://cyntwikip.github.io/project/music-ai/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Identification of People’s Interests Using Emoji</title>
+      <link>https://cyntwikip.github.io/project/tweet-emoji/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/tweet-emoji/</guid>
+      <description>&lt;p&gt;Authors: Aian Rosales and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;People’s interests in a certain area, Makati to be specific, are identified using the people’s tweets with certain emojis. Using Latent Dirichlet Allocation as a clustering technique, tweets with certain emojis can be grouped into 4 major clusters: Food Porn, Current Events, Happy Travels, and K-Pop. The results seem to reflect the overall set of topics that even non-emoji users could have been discussing as well. Themes can be used for guiding businesses in setting up new brand campaigns or releasing new products. Moreover, understanding emojis can further advance machine’s ability to learn context in chat-based conversations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./wordcloud_groups.jpg&#34; alt=&#34;jpg&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Donors Choose Recommendation System</title>
+      <link>https://cyntwikip.github.io/project/donors-choose/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/donors-choose/</guid>
+      <description>&lt;p&gt;Authors: Tristan Alba, Prince Javier, and Jude Teves&lt;/p&gt;
+
+&lt;p&gt;We have created a recommender system and a &lt;a href=&#34;http://cyntwikip-choosedonors.herokuapp.com/&#34; target=&#34;_blank&#34;&gt;web application&lt;/a&gt; for it as our entry for the &lt;a href=&#34;https://www.kaggle.com/donorschoose/io&#34; target=&#34;_blank&#34;&gt;Donors Choose Kaggle competition&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
     <item>

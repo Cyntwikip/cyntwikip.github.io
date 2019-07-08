@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Civilization on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/civilization/</link>
+    <description>Recent content in Civilization on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Wed, 20 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/civilization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Civilization Simulation</title>
+      <link>https://cyntwikip.github.io/project/civ-simulation/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/civ-simulation/</guid>
+      <description>&lt;p&gt;Created a cellular automata model that simulates how different human races propagate.&lt;/p&gt;
+
+&lt;!-- ![Civ gif](./Civ-world-2.gif) --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
