@@ -11,8 +11,6 @@ class Person {
     // schedule = {time1:location}
 
     constructor(role, status, house) {
-        // this.locations = locations;
-        // this.location = LOCATIONS.house;
         this.house = house;
         this.location = this.house;
         this.role = role;
@@ -111,6 +109,7 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
                                            'NonFrontlinerOut': 40,
                                            'NonFrontlinerHouse': 40})];
 
+        // not using let causes the variable to become string instead of int...
         let status = STATUS[sampleWeightedChoice({'Susceptible': 95, 
                                               'Exposed': 0,
                                               'Asymptomatic': 0,
@@ -212,7 +211,9 @@ function iterate() {
     this.historyHours.push(hour);
 
     if (hour==0) {
-        createWorld();
+        // createWorld();
+
+        createWorld(nPeople=nPeople, nHouse=nHouses, nHospital=nHospitals, nSupermarket=nSupermarkets);
     }
     else {
         run();
@@ -232,5 +233,17 @@ function iterate() {
 
     stackedLine.update();
     this.hour += 1;
+}
+
+function reset() {
+    console.log('reset');
+    this.hour = 0;
+    this.historyHours.length = 0;
+    this.historySusceptible.length = 0;
+    this.historyExposed.length = 0;
+    this.historyInfected.length = 0;
+    this.historyRecovered.length = 0;
+    
+    stackedLine.update();
 }
 
