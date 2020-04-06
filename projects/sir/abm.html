@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <script type="text/javascript" src="js/abm.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    </head>
+
+    <body>
+        <div class="chart-container" style="position:relative; width:600px;"></div>
+            <canvas id="myChart" height="400" width="800"></canvas>
+        </div>
+        <button onclick="iterate();">Add</button>
+    </body>
+    <script>
+        let data = {
+				labels: this.historyHours,
+				datasets: [{
+					label: 'Infected',
+					borderColor: window.chartColors.red,
+					backgroundColor: window.chartColors.red,
+					data: historyInfected,
+				}, {
+					label: 'Susceptible',
+					borderColor: window.chartColors.blue,
+					backgroundColor: window.chartColors.blue,
+					data: historySusceptible,
+				}, {
+					label: 'Exposed',
+					borderColor: window.chartColors.yellow,
+					backgroundColor: window.chartColors.yellow,
+					data: historyExposed,
+				}, {
+					label: 'Recovered',
+					borderColor: window.chartColors.green,
+					backgroundColor: window.chartColors.green,
+					data: historyRecovered,
+				}]
+			}
+
+        let options = {
+                responsive: false,
+                // maintainAspectRatio: false,
+				title: {
+					display: true,
+					text: 'Chart.js Line Chart - Stacked Area'
+				},
+				tooltips: {
+					mode: 'index',
+				},
+				hover: {
+					mode: 'index'
+				},
+				scales: {
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Hour'
+						}
+					}],
+					yAxes: [{
+						stacked: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Counts'
+						}
+					}]
+				}
+			}
+
+        let ctx = document.getElementById('myChart').getContext('2d');
+
+        let stackedLine = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+
+        // iterate();
+
+        setTimeout(stopTimer, 20000);
+        let timer = setInterval(iterate, 50);
+        function stopTimer() {
+            clearInterval(timer);
+        }
+    </script>
+</html>
