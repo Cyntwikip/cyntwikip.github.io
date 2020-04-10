@@ -33,7 +33,7 @@ class Person {
 
     constructor(role, status, house) {
         this.house = house;
-        this.location = this.house;
+        this.location = house;
         this.role = role;
         this.status = status;
         this.schedule = {};
@@ -177,7 +177,7 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
 // Run single time step
 function run() {
 
-    hourWeek = hour % 24*7;
+    hourWeek = hour % (24*7);
 
     // update location, increase incubation period, and update status
     for (let i=0; i<people.length; i++) {
