@@ -31,7 +31,8 @@ class Person {
     // schedule format:
     // schedule = {time1:location}
 
-    constructor(role, status, house) {
+    constructor(id, role, status, house) {
+        this.id = id;
         this.house = house;
         this.location = house;
         this.role = role;
@@ -130,7 +131,7 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
 
     this.houseHasPerson = {};
     
-    this.people = Array.from(Array(nPeople).keys()).map((d) => {
+    this.people = Array.from(Array(nPeople).keys()).map((id) => {
         let houseNum = Math.floor(Math.random() * nHouse);
         let house = this.houses[houseNum].getReferenceId();
         let role = null;
@@ -141,10 +142,11 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
             //                                     'NonFrontlinerOut': 40,
             //                                     'NonFrontlinerHouse': 40})];
             role = ROLES[sampleWeightedChoice(roleDist)];
+            this.houseHasPerson[house].push(id);
         }
 
         else {
-            this.houseHasPerson[house] = true;
+            this.houseHasPerson[house] = [id];
             role = ROLES.NonFrontlinerOut;
         }
 
@@ -157,7 +159,7 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
         //                                       'Dead': 0})];
         let status = STATUS[sampleWeightedChoice(initialStatusDist)]
 
-        person = new Person(role, status, house);
+        person = new Person(id, role, status, house);
 
         if (role==ROLES.Frontliner) {
             hospitalNum = Math.floor(Math.random() * nHospital);
@@ -187,10 +189,30 @@ function run() {
         }
 
         people[i].goSomewhere(hourWeek);
+
+        // if exposed, increase incubation timer
         if (people[i].status == STATUS.Exposed) {
             people[i].incubation += 1;
+            
+            // if incubation period is over, change status to symptomatic or asymptomatic
             if (people[i].incubation >= incubationPeriod) {
                 people[i].status = Math.random() <= pAsymptomatic ? STATUS.Asymptomatic : STATUS.Symptomatic;
+
+                // if NonFrontlinerOut, look for someone else in the same house
+                if (people[i].status == STATUS.Symptomatic && people[i].role == ROLES.NonFrontlinerOut) {
+                    let house = people[i].house;
+                    for (peopleId of this.houseHasPerson[house]) {
+                        if (i!=peopleId && people[peopleId].role==ROLES.NonFrontlinerHouse) {
+                            people[peopleId].role = ROLES.NonFrontlinerOut;
+                            break;
+                        }
+                    }
+                    // for (let j=0; j<people.length; j++) {
+                    //     if (i!=j && people[i].house==people[j].house && p) {
+
+                    //     }
+                    // }
+                }
             }
         }
         else if ([STATUS.Symptomatic, STATUS.Asymptomatic].includes(people[i].status)) {
