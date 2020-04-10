@@ -145,6 +145,7 @@
                 </div>
             <!-- </div> -->
 
+            <hr>
         </div>
     </body>
     <script>
@@ -253,17 +254,17 @@
             value = document.getElementById('chartDataPoints').value;   
             chartDataPoints = value ? parseInt(value): null; 
 
-            distFrontliner = document.getElementById('distFrontliner').value;  
-            distNonFrontlinerOut = document.getElementById('distNonFrontlinerOut').value;
-            distNonFrontlinerHouse = document.getElementById('distNonFrontlinerHouse').value;
+            distFrontliner = parseInt(document.getElementById('distFrontliner').value);  
+            distNonFrontlinerOut = parseInt(document.getElementById('distNonFrontlinerOut').value);
+            distNonFrontlinerHouse = parseInt(document.getElementById('distNonFrontlinerHouse').value);
             roleDist = {'Frontliner': distFrontliner,
-                                'NonFrontlinerOut': distNonFrontlinerOut,
-                                'NonFrontlinerHouse': distNonFrontlinerHouse
-                            }
+                            'NonFrontlinerOut': distNonFrontlinerOut,
+                            'NonFrontlinerHouse': distNonFrontlinerHouse
+                        }
 
-            distSusceptible = document.getElementById('distSusceptible').value;  
-            distAsymptomatic = document.getElementById('distAsymptomatic').value;
-            distSymptomatic = document.getElementById('distSymptomatic').value;
+            distSusceptible = parseInt(document.getElementById('distSusceptible').value);  
+            distAsymptomatic = parseInt(document.getElementById('distAsymptomatic').value);
+            distSymptomatic = parseInt(document.getElementById('distSymptomatic').value);
             initialStatusDist = {'Susceptible': distSusceptible,
                                     'Asymptomatic': distAsymptomatic,
                                     'Symptomatic': distSymptomatic

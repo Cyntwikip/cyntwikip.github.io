@@ -40,7 +40,7 @@ class Person {
         this.incubation = 0;
     }
 
-    addSchedule(hospital=null, bank=null, restaurant=null, supermarket=null) {
+    addSchedule({hospital=null, bank=null, restaurant=null, supermarket=null} = {}) {
         // 24 hrs x 7 days = 168
 
         if (this.role==ROLES.Frontliner) {
@@ -54,11 +54,15 @@ class Person {
         }
 
         if (this.role==ROLES.NonFrontlinerOut) {
+            // console.log('Out!!');
+            // console.log(hospital);
+            // console.log(supermarket);
             let day = Math.floor(Math.random() * 7);
             let hour = Math.floor(Math.random() * 15) + 5; // 5am - 8pm
-            let duration = Math.floor(Math.random() * 4); // max of 5 hrs
+            let minDuration = 2, maxDuration = 6;
+            let duration = Math.floor(Math.random() * (maxDuration-minDuration));
             
-            for (let j=0; j<duration; j++) {
+            for (let j=0; j<=duration+minDuration; j++) {
                 let hourWeek = day*24 + hour + j;
                 this.schedule[hourWeek] = supermarket;
             }
@@ -158,12 +162,12 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
         if (role==ROLES.Frontliner) {
             hospitalNum = Math.floor(Math.random() * nHospital);
             hospital = this.hospitals[hospitalNum].getReferenceId();
-            person.addSchedule(hospital=hospital);
+            person.addSchedule({hospital: hospital});
         }
         else if (role==ROLES.NonFrontlinerOut) {
             supermarketNum = Math.floor(Math.random() * nSupermarket);
             supermarket = this.supermarkets[supermarketNum].getReferenceId();
-            person.addSchedule(supermarket=supermarket);
+            person.addSchedule({supermarket: supermarket});
         }
 
         return person;
