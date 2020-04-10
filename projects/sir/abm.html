@@ -45,7 +45,7 @@
                 <div class="column">
                     <div class="field is-horizontal">
                         <label class="label">Incubation Period (hrs)</label>
-                        <input id="pIncubation" class="input is-rounded" type="number" placeholder="Incubation Period" value=24>
+                        <input id="incubationPeriod" class="input is-rounded" type="number" placeholder="Incubation Period" value=24>
                     </div>
                     <div class="field is-horizontal">
                         <label class="label">Recovery Rate</label>
@@ -155,8 +155,8 @@
             value = parseFloat(document.getElementById('pAsymptomatic').value);
             pAsymptomatic = value ? value: pAsymptomatic; 
             
-            value = parseInt(document.getElementById('pIncubation').value);
-            pIncubation = value ? value: pIncubation; 
+            value = parseInt(document.getElementById('incubationPeriod').value);
+            incubationPeriod = value ? value: incubationPeriod; 
             value = parseFloat(document.getElementById('pRecovery').value);
             pRecovery = value ? value: pRecovery; 
             value = parseFloat(document.getElementById('pDeath').value);
