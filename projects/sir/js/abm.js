@@ -8,11 +8,16 @@ const STATUS = Object.freeze({"Susceptible":0, "Exposed":1, "Asymptomatic":2, "S
 
 // Global variables
 
+chartDataPoints = 168;
+roleDist = {};
+initialStatusDist = {};
+
 historyHours = [];
 historySusceptible = [];
 historyExposed = [];
 historyInfected = [];
 historyRecovered = [];
+historyDead = [];
 hour = 0;
 incubationPeriod = 24*3;
 infectionRate = 0.1;
@@ -118,24 +123,37 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
     this.banks = genLocation(LOCATIONS.Bank, nBank);
     this.restaurants = genLocation(LOCATIONS.Restaurant, nRestaurants);
     this.supermarkets = genLocation(LOCATIONS.Supermarket, nSupermarket);
+
+    this.houseHasPerson = {};
     
     this.people = Array.from(Array(nPeople).keys()).map((d) => {
-        houseNum = Math.floor(Math.random() * nHouse);
-        house = this.houses[houseNum].getReferenceId();
-        let role = ROLES[sampleWeightedChoice({'Frontliner': 20, 
-                                           'NonFrontlinerOut': 40,
-                                           'NonFrontlinerHouse': 40})];
+        let houseNum = Math.floor(Math.random() * nHouse);
+        let house = this.houses[houseNum].getReferenceId();
+        let role = null;
+
+        if (house in this.houseHasPerson) {
+            // not using let causes the variable to become string instead of int...
+            // role = ROLES[sampleWeightedChoice({'Frontliner': 20, 
+            //                                     'NonFrontlinerOut': 40,
+            //                                     'NonFrontlinerHouse': 40})];
+            role = ROLES[sampleWeightedChoice(roleDist)];
+        }
+
+        else {
+            this.houseHasPerson[house] = true;
+            role = ROLES.NonFrontlinerOut;
+        }
 
         // not using let causes the variable to become string instead of int...
-        let status = STATUS[sampleWeightedChoice({'Susceptible': 95, 
-                                              'Exposed': 0,
-                                              'Asymptomatic': 0,
-                                              'Symptomatic': 5,
-                                              'Immune': 0,
-                                              'Dead': 0})];
+        // let status = STATUS[sampleWeightedChoice({'Susceptible': 95, 
+        //                                       'Exposed': 0,
+        //                                       'Asymptomatic': 0,
+        //                                       'Symptomatic': 5,
+        //                                       'Immune': 0,
+        //                                       'Dead': 0})];
+        let status = STATUS[sampleWeightedChoice(initialStatusDist)]
 
         person = new Person(role, status, house);
-        // console.log(person);
 
         if (role==ROLES.Frontliner) {
             hospitalNum = Math.floor(Math.random() * nHospital);
@@ -199,8 +217,7 @@ function run() {
                     }
                 }
             }        
-            // console.log(loc[i].getReferenceId());
-            // console.log(peopleInfectedIndices);
+
             let nInfected = peopleInfectedIndices.length;
             let pNoInfection = (1 - infectionRate)**nInfected;
             let pInfection = 1 - pNoInfection;
@@ -237,9 +254,12 @@ function countStatus() {
     susceptible = counts[STATUS.Susceptible];
     exposed = counts[STATUS.Exposed];
     infected = counts[STATUS.Asymptomatic] + counts[STATUS.Symptomatic];
-    recovered = counts[STATUS.Immune]+ counts[STATUS.Dead];
+    recovered = counts[STATUS.Immune];
+    dead = counts[STATUS.Dead];
+    return [susceptible, exposed, infected, recovered, dead];
 
-    return [susceptible, exposed, infected, recovered];
+    // recovered = counts[STATUS.Immune] + counts[STATUS.Dead];
+    // return [susceptible, exposed, infected, recovered];
 }
 
 // Simulate for single time step, save values, and increase time counter
@@ -247,44 +267,37 @@ function iterate() {
 
     if (hour==0) {
         // createWorld();
-
         createWorld(nPeople=nPeople, nHouse=nHouses, nHospital=nHospitals, nSupermarket=nSupermarkets);
     }
     else {
         run();
     }
 
-    let [susceptible, exposed, infected, recovered] = countStatus();
-
-    // console.log(susceptible);
-    // console.log(exposed);
-    // console.log(infected);
-    // console.log(recovered);
+    let [susceptible, exposed, infected, recovered, dead] = countStatus();
 
     this.historyHours.push(hour);
     this.historySusceptible.push(susceptible);
     this.historyExposed.push(exposed);
     this.historyInfected.push(infected);
     this.historyRecovered.push(recovered);
+    this.historyDead.push(dead);
 
-    let slice = 24*7;
-    if (historyHours.length > slice) {
-        for (s of [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered]) {
-            s.shift();
+    let history = [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered, this.historyDead]
+
+    // let slice = 24*7;
+    let len = historyHours.length;
+    if (len > chartDataPoints) {
+        for (s of history) {
+            if (len + 1 == chartDataPoints) {
+                s.shift();
+            }
+            else {
+                s.reverse().splice(chartDataPoints);
+                s.reverse();
+            }
         }
     }
     
-    // this.historyHours.splice(slice);
-    // this.historySusceptible.splice(slice);
-    // this.historyExposed.splice(slice);
-    // this.historyInfected.splice(slice);
-    // this.historyRecovered.splice(slice);
-
-    // for (s of [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered]) {
-    //     s.reverse().splice(slice);
-    //     s.reverse();
-    // }
-
     stackedLine.update();
     this.hour += 1;
 }

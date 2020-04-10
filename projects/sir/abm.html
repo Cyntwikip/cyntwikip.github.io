@@ -6,70 +6,145 @@
         <script type="text/javascript" src="js/abm.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+        <style>
+            #idDataPoints {
+                width: 200px;
+                margin: 0 auto;
+            }
+            .dist {
+                width: 800px;
+                margin: 0 auto;
+            }
+            #myChart {
+                /* height: 300;  */
+                margin: 0 auto;
+                /* padding-bottom: 50px; */
+                width: 800;
+            }
+            .dist .column input {
+                width: 100px;
+            }
+            /* #distContainer {
+                width: 600px;
+                margin: 0 auto;
+            } */
+            #header {
+                /* width: 900px;  */
+                /* margin: 0 auto; */
+                height: 60px;
+                background-color: slategray;
+            }
+            #header-title {
+                width: 800px; 
+                margin: 0 auto;
+                color: white;
+                font-size: 25px;
+            }
+        </style>
     </head>
 
     <body>
-        <!-- <label>Infection Rate: </label><input id="infectionRate"> -->
-
-        <div style="width: 800px; margin: 0 auto;">
-
-            <div class="columns" style="width: 800px; margin: 20px;">
+        <div id="header">
+            <div id="header-title">Pandemic Simulation</div>
+            <!-- <div id="header-subtitle"></div> -->
+        </div>
+        <div style="width: 900px; margin: 0 auto;">
+            <div class="columns" style="width: 800px; margin: 20px auto;">
                 <div class="column">
                     <div class="field is-horizontal">
-                        <label class="label">Infection Rate</label>
-                        <input id="infectionRate" class="input is-rounded" type="number" step=0.01 placeholder="Infection Rate" value=0.8 max=1 min=0>
+                        <label class="label is-small">Infection Rate</label>
+                        <input id="infectionRate" class="input is-small is-rounded" type="number" step=0.01 placeholder="Infection Rate" value=0.2 max=1 min=0>
                     </div>
                     <div class="field is-horizontal">
-                        <label class="label">Number of People</label>
-                        <input id="nPeople" class="input is-rounded" type="number" placeholder="Number of People" value=300>
+                        <label class="label is-small">Number of People</label>
+                        <input id="nPeople" class="input is-small is-rounded" type="number" placeholder="Number of People" value=300>
                     </div>
                     <div class="field is-horizontal">
-                        <label class="label">Number of Hospitals</label>
-                        <input id="nHospitals" class="input is-rounded" type="number" placeholder="Number of Hospitals" value=1>
+                        <label class="label is-small">Number of Hospitals</label>
+                        <input id="nHospitals" class="input is-small is-rounded" type="number" placeholder="Number of Hospitals" value=1 min=1>
                     </div>
                 </div>
                 <div class="column">
                     <div class="field is-horizontal">
-                        <label class="label">Asymptomatic Probability</label>
-                        <input id="pAsymptomatic" class="input is-rounded" type="number" step=0.01 placeholder="Asymptomatic Probability" value=0.3 max=1 min=0>
+                        <label class="label is-small">Asymptomatic Probability</label>
+                        <input id="pAsymptomatic" class="input is-small is-rounded" type="number" step=0.01 placeholder="Asymptomatic Probability" value=0.3 max=1 min=0>
                     </div>
                     <div class="field is-horizontal">
-                        <label class="label">Number of Houses</label>
-                        <input id="nHouses" class="input is-rounded" type="number" placeholder="Number of Houses" value=30>
+                        <label class="label is-small">Number of Houses</label>
+                        <input id="nHouses" class="input is-small is-rounded" type="number" placeholder="Number of Houses" value=30 min=1>
                     </div>
                     <div class="field is-horizontal">
-                        <label class="label">Number of Supermarkets</label>
-                        <input id="nSupermarkets" class="input is-rounded" type="number" placeholder="Number of Supermarkets" value=1>
+                        <label class="label is-small">Number of Supermarkets</label>
+                        <input id="nSupermarkets" class="input is-small is-rounded" type="number" placeholder="Number of Supermarkets" value=1 min=1>
                     </div>
                 </div>
                 <div class="column">
                     <div class="field is-horizontal">
-                        <label class="label">Incubation Period (hrs)</label>
-                        <input id="incubationPeriod" class="input is-rounded" type="number" placeholder="Incubation Period" value=24>
+                        <label class="label is-small">Incubation Period (hrs)</label>
+                        <input id="incubationPeriod" class="input is-small is-rounded" type="number" placeholder="Incubation Period" value=24 min=1>
                     </div>
                     <div class="field is-horizontal">
-                        <label class="label">Recovery Rate</label>
-                        <input id="pRecovery" class="input is-rounded" type="number" step=0.001 placeholder="Recovery Rate" value=0.007 max=1 min=0>
+                        <label class="label is-small">Recovery Rate</label>
+                        <input id="pRecovery" class="input is-small is-rounded" type="number" step=0.001 placeholder="Recovery Rate" value=0.007 max=1 min=0>
                     </div>
                     <div class="field is-horizontal">
-                        <label class="label">Death Rate</label>
-                        <input id="pDeath" class="input is-rounded" type="number" step=0.001 placeholder="Death Rate" value=0.003 max=1 min=0>
+                        <label class="label is-small">Death Rate</label>
+                        <input id="pDeath" class="input is-small is-rounded" type="number" step=0.001 placeholder="Death Rate" value=0.003 max=1 min=0>
                     </div>
                 </div>
             </div>
 
-            <div class="buttons" style="margin: 0 auto; width: 0px;">
+            <hr>
+
+            <div class="buttons is-block has-text-centered">
                 <button id="btnRun" class="button is-primary">Run</button>
                 <button onclick="reset();" class="button is-danger">Reset</button>
+                <button id="btnAdd" class="button is-warning">Add</button>
             </div>
 
-            <div class="chart-container" style="position:relative; width:600px;"></div>
-                <canvas id="myChart" height="400" width="800"></canvas>
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
             </div>
 
-            <div class="buttons" style="margin: 0 auto; width: 0px;">
-                <button onclick="iterate();" class="button is-warning">Add</button>
+            <hr>
+            <div id="idDataPoints" class="field is-horizontal">
+                <label class="label is-small">Chart data points: </label>
+                <input id="chartDataPoints" class="input is-small is-rounded" type="number" placeholder="Chart data points" value=168 min=2 max=1000>
             </div>
+            <hr>
+            <!-- <div id="distContainer"> -->
+                <div class="columns dist">
+                    <div class="column field is-vertical">
+                        <label class="label is-small">Frontliner distribution: </label>
+                        <input id="distFrontliner" class="input is-small is-rounded" type="number" placeholder="Frontliner" value=10 min=0>
+                    </div>
+                    <div class="column field is-vertical">
+                        <label class="label is-small">Going outside distribution: </label>
+                        <input id="distNonFrontlinerOut" class="input is-small is-rounded" type="number" placeholder="Going outside" value=10 min=0>
+                    </div>
+                    <div class="column field is-vertical">
+                        <label class="label is-small">House only distribution: </label>
+                        <input id="distNonFrontlinerHouse" class="input is-small is-rounded" type="number" placeholder="House only" value=80 min=0>
+                    </div>
+                </div>
+
+                <div class="columns dist">
+                    <div class="column field is-vertical">
+                        <label class="label is-small">Initial Susceptible distribution: </label>
+                        <input id="distSusceptible" class="input is-small is-rounded" type="number" placeholder="initial Susceptible" value=95 min=0>
+                    </div>
+                    <div class="column field is-vertical">
+                        <label class="label is-small">Initial Asymptomatic distribution: </label>
+                        <input id="distAsymptomatic" class="input is-small is-rounded" type="number" placeholder="Initial Asymptomatic" value=0 min=0>
+                    </div>
+                    <div class="column field is-vertical">
+                        <label class="label is-small">Initial Symptomatic distribution: </label>
+                        <input id="distSymptomatic" class="input is-small is-rounded" type="number" placeholder="Initial Symptomatic" value=5 min=0>
+                    </div>
+                </div>
+            <!-- </div> -->
+
         </div>
     </body>
     <script>
@@ -95,6 +170,11 @@
 					borderColor: window.chartColors.green,
 					backgroundColor: window.chartColors.green,
 					data: historyRecovered,
+				},  {
+					label: 'Dead',
+					borderColor: window.chartColors.grey,
+					backgroundColor: window.chartColors.grey,
+					data: historyDead,
 				}]
 			}
 
@@ -128,11 +208,11 @@
 						}
 					}]
                 },
-                // elements: {
-                //     line: {
-                //         tension: 0 // disables bezier curves
-                //     }
-                // }
+                elements: {
+                    line: {
+                        tension: 0 // disables bezier curves
+                    }
+                }
 			}
 
         let ctx = document.getElementById('myChart').getContext('2d');
@@ -146,10 +226,9 @@
         // iterate();
 
         let btn = document.getElementById('btnRun');
+        let btnAdd = document.getElementById('btnAdd');
 
-        btn.addEventListener('click', () => {
-            btn.disabled = true;
-
+        function updateValues() {
             let value = parseFloat(document.getElementById('infectionRate').value);
             infectionRate = value ? value: infectionRate; 
             value = parseFloat(document.getElementById('pAsymptomatic').value);
@@ -171,13 +250,47 @@
             value = document.getElementById('nSupermarkets').value;
             nSupermarkets = value ? parseInt(value): null; 
 
+            value = document.getElementById('chartDataPoints').value;   
+            chartDataPoints = value ? parseInt(value): null; 
+
+            distFrontliner = document.getElementById('distFrontliner').value;  
+            distNonFrontlinerOut = document.getElementById('distNonFrontlinerOut').value;
+            distNonFrontlinerHouse = document.getElementById('distNonFrontlinerHouse').value;
+            roleDist = {'Frontliner': distFrontliner,
+                                'NonFrontlinerOut': distNonFrontlinerOut,
+                                'NonFrontlinerHouse': distNonFrontlinerHouse
+                            }
+
+            distSusceptible = document.getElementById('distSusceptible').value;  
+            distAsymptomatic = document.getElementById('distAsymptomatic').value;
+            distSymptomatic = document.getElementById('distSymptomatic').value;
+            initialStatusDist = {'Susceptible': distSusceptible,
+                                    'Asymptomatic': distAsymptomatic,
+                                    'Symptomatic': distSymptomatic
+                                }
+            
+        }
+
+        btn.addEventListener('click', () => {
+            btn.disabled = true;
+            btnAdd.disabled = true;
+
+            updateValues();
+
             let timer = setInterval(iterate, 5);
             function stopTimer() {
                 clearInterval(timer);
                 btn.disabled = false;
+                btnAdd.disabled = false;
             }
             setTimeout(stopTimer, 5000);
             
         });
+
+        btnAdd.addEventListener('click', () => {
+            updateValues();
+            iterate();
+        });
+
     </script>
 </html>
