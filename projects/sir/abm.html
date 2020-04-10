@@ -17,29 +17,43 @@
                 <div class="column">
                     <div class="field is-horizontal">
                         <label class="label">Infection Rate</label>
-                        <input id="infectionRate" class="input is-rounded" type="text" placeholder="Infection Rate" value=0.8>
+                        <input id="infectionRate" class="input is-rounded" type="number" step=0.01 placeholder="Infection Rate" value=0.8 max=1 min=0>
                     </div>
                     <div class="field is-horizontal">
                         <label class="label">Number of People</label>
-                        <input id="nPeople" class="input is-rounded" type="text" placeholder="Number of People" value=100>
+                        <input id="nPeople" class="input is-rounded" type="number" placeholder="Number of People" value=300>
                     </div>
                     <div class="field is-horizontal">
                         <label class="label">Number of Hospitals</label>
-                        <input id="nHospitals" class="input is-rounded" type="text" placeholder="Number of Hospitals" value=3>
+                        <input id="nHospitals" class="input is-rounded" type="number" placeholder="Number of Hospitals" value=1>
                     </div>
                 </div>
                 <div class="column">
                     <div class="field is-horizontal">
                         <label class="label">Asymptomatic Probability</label>
-                        <input id="pAsymptomatic" class="input is-rounded" type="text" placeholder="Asymptomatic Probability" value=0.2>
+                        <input id="pAsymptomatic" class="input is-rounded" type="number" step=0.01 placeholder="Asymptomatic Probability" value=0.3 max=1 min=0>
                     </div>
                     <div class="field is-horizontal">
                         <label class="label">Number of Houses</label>
-                        <input id="nHouses" class="input is-rounded" type="text" placeholder="Number of Houses" value=10>
+                        <input id="nHouses" class="input is-rounded" type="number" placeholder="Number of Houses" value=30>
                     </div>
                     <div class="field is-horizontal">
                         <label class="label">Number of Supermarkets</label>
-                        <input id="nSupermarkets" class="input is-rounded" type="text" placeholder="Number of Supermarkets" value=3>
+                        <input id="nSupermarkets" class="input is-rounded" type="number" placeholder="Number of Supermarkets" value=1>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field is-horizontal">
+                        <label class="label">Incubation Period (hrs)</label>
+                        <input id="pIncubation" class="input is-rounded" type="number" placeholder="Incubation Period" value=24>
+                    </div>
+                    <div class="field is-horizontal">
+                        <label class="label">Recovery Rate</label>
+                        <input id="pRecovery" class="input is-rounded" type="number" step=0.001 placeholder="Recovery Rate" value=0.007 max=1 min=0>
+                    </div>
+                    <div class="field is-horizontal">
+                        <label class="label">Death Rate</label>
+                        <input id="pDeath" class="input is-rounded" type="number" step=0.001 placeholder="Death Rate" value=0.003 max=1 min=0>
                     </div>
                 </div>
             </div>
@@ -67,16 +81,16 @@
 					backgroundColor: window.chartColors.red,
 					data: historyInfected,
 				}, {
-					label: 'Susceptible',
-					borderColor: window.chartColors.blue,
-					backgroundColor: window.chartColors.blue,
-					data: historySusceptible,
-				}, {
 					label: 'Exposed',
 					borderColor: window.chartColors.yellow,
 					backgroundColor: window.chartColors.yellow,
 					data: historyExposed,
 				}, {
+					label: 'Susceptible',
+					borderColor: window.chartColors.blue,
+					backgroundColor: window.chartColors.blue,
+					data: historySusceptible,
+				},  {
 					label: 'Recovered',
 					borderColor: window.chartColors.green,
 					backgroundColor: window.chartColors.green,
@@ -85,6 +99,8 @@
 			}
 
         let options = {
+                animation: false,
+                parsing: false,
                 responsive: false,
                 // maintainAspectRatio: false,
 				title: {
@@ -111,7 +127,12 @@
 							labelString: 'Counts'
 						}
 					}]
-				}
+                },
+                // elements: {
+                //     line: {
+                //         tension: 0 // disables bezier curves
+                //     }
+                // }
 			}
 
         let ctx = document.getElementById('myChart').getContext('2d');
@@ -127,10 +148,19 @@
         let btn = document.getElementById('btnRun');
 
         btn.addEventListener('click', () => {
+            btn.disabled = true;
+
             let value = parseFloat(document.getElementById('infectionRate').value);
             infectionRate = value ? value: infectionRate; 
             value = parseFloat(document.getElementById('pAsymptomatic').value);
             pAsymptomatic = value ? value: pAsymptomatic; 
+            
+            value = parseInt(document.getElementById('pIncubation').value);
+            pIncubation = value ? value: pIncubation; 
+            value = parseFloat(document.getElementById('pRecovery').value);
+            pRecovery = value ? value: pRecovery; 
+            value = parseFloat(document.getElementById('pDeath').value);
+            pDeath = value ? value: pDeath; 
 
             value = document.getElementById('nPeople').value;   
             nPeople = value ? parseInt(value): null; 
@@ -141,12 +171,12 @@
             value = document.getElementById('nSupermarkets').value;
             nSupermarkets = value ? parseInt(value): null; 
 
-            setTimeout(stopTimer, 5000);
-            let timer = setInterval(iterate, 20);
+            let timer = setInterval(iterate, 5);
             function stopTimer() {
                 clearInterval(timer);
+                btn.disabled = false;
             }
-
+            setTimeout(stopTimer, 5000);
             
         });
     </script>

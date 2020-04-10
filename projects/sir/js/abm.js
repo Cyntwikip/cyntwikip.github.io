@@ -6,6 +6,22 @@ const STATUS = Object.freeze({"Susceptible":0, "Exposed":1, "Asymptomatic":2, "S
 
 // Constants
 
+// Global variables
+
+historyHours = [];
+historySusceptible = [];
+historyExposed = [];
+historyInfected = [];
+historyRecovered = [];
+hour = 0;
+incubationPeriod = 24*3;
+infectionRate = 0.1;
+pAsymptomatic = 0.2;
+pRecovery = 0.007;
+pDeath = 0.003;
+
+// Global variables
+
 class Person {
     // schedule format:
     // schedule = {time1:location}
@@ -16,6 +32,7 @@ class Person {
         this.role = role;
         this.status = status;
         this.schedule = {};
+        this.incubation = 0;
     }
 
     addSchedule(hospital=null, bank=null, restaurant=null, supermarket=null) {
@@ -135,22 +152,35 @@ function createWorld(nPeople=100, nHouse=20, nHospital=3, nBank=3, nRestaurants=
     });
 }
 
-historyHours = [];
-historySusceptible = [];
-historyExposed = [];
-historyInfected = [];
-historyRecovered = [];
-hour = 0;
-infectionRate = 0.1;
-pAsymptomatic = 0.2;
-
+// Run single time step
 function run() {
 
     hourWeek = hour % 24*7;
 
-    // update location
+    // update location, increase incubation period, and update status
     for (let i=0; i<people.length; i++) {
+        if (people[i].status == STATUS.Dead) {
+            people[i].schedule = {};
+            continue;
+        }
+
         people[i].goSomewhere(hourWeek);
+        if (people[i].status == STATUS.Exposed) {
+            people[i].incubation += 1;
+            if (people[i].incubation >= incubationPeriod) {
+                people[i].status = Math.random() <= pAsymptomatic ? STATUS.Asymptomatic : STATUS.Symptomatic;
+            }
+        }
+        else if ([STATUS.Symptomatic, STATUS.Asymptomatic].includes(people[i].status)) {
+            p = Math.random();
+            people[i].status = p < pDeath ? STATUS.Dead : p < pRecovery + pDeath ? STATUS.Immune : people[i].status;
+        }
+
+        // if updated status is one of the ff, just stay at home!
+        if ([STATUS.Symptomatic].includes(people[i].status)) {
+            people[i].schedule = {};
+            people[i].role = ROLES.NonFrontlinerHouse;
+        }
     }
 
     for (loc of [houses, hospitals, banks, restaurants, supermarkets]) {
@@ -164,7 +194,7 @@ function run() {
                         // console.log(people[j].status);
                         peopleInfectedIndices.push(j);
                     }
-                    else {
+                    else if ([STATUS.Susceptible].includes(people[j].status)){
                         peopleNotInfectedIndices.push(j);
                     }
                 }
@@ -179,8 +209,12 @@ function run() {
                 if (isInfected) {
                     personNotInfectedIndex = peopleNotInfectedIndices[j];
 
-                    newStatus = Math.random() <= pAsymptomatic ? STATUS.Asymptomatic : STATUS.Symptomatic;
+                    // newStatus = Math.random() <= pAsymptomatic ? STATUS.Asymptomatic : STATUS.Symptomatic;
+                    newStatus = STATUS.Exposed;
                     people[personNotInfectedIndex].status = newStatus;
+
+                    // // add new infected people to infected people list
+                    // peopleInfectedIndices.push(personNotInfectedIndex);
                 }
             }
         }
@@ -188,6 +222,7 @@ function run() {
 
 }
 
+// Global counter for status
 function countStatus() {
     counts = valueCounts(this.people.map((d) => {
         return d['status'];
@@ -207,8 +242,8 @@ function countStatus() {
     return [susceptible, exposed, infected, recovered];
 }
 
+// Simulate for single time step, save values, and increase time counter
 function iterate() {
-    this.historyHours.push(hour);
 
     if (hour==0) {
         // createWorld();
@@ -226,15 +261,35 @@ function iterate() {
     // console.log(infected);
     // console.log(recovered);
 
+    this.historyHours.push(hour);
     this.historySusceptible.push(susceptible);
     this.historyExposed.push(exposed);
     this.historyInfected.push(infected);
     this.historyRecovered.push(recovered);
 
+    let slice = 24*7;
+    if (historyHours.length > slice) {
+        for (s of [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered]) {
+            s.shift();
+        }
+    }
+    
+    // this.historyHours.splice(slice);
+    // this.historySusceptible.splice(slice);
+    // this.historyExposed.splice(slice);
+    // this.historyInfected.splice(slice);
+    // this.historyRecovered.splice(slice);
+
+    // for (s of [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered]) {
+    //     s.reverse().splice(slice);
+    //     s.reverse();
+    // }
+
     stackedLine.update();
     this.hour += 1;
 }
 
+// Reset the simulation
 function reset() {
     console.log('reset');
     this.hour = 0;
