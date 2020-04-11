@@ -2,16 +2,21 @@
     <head>
         <title>Pandemic Simulation</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
+        <link rel="stylesheet" href="css/bulma-switch.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <script type="text/javascript" src="js/abm.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
         <style>
-            #idDataPoints {
+            /* #idDataPoints {
                 width: 200px;
                 margin: 0 auto;
-            }
+            } */
+            /* #idDataPoints input{
+                width: 150px;
+            } */
             .dist {
                 width: 800px;
                 margin: 0 auto;
@@ -40,6 +45,10 @@
                 margin: 0 auto;
                 color: white;
                 font-size: 25px;
+            }
+            #optimize {
+                width: 600px;
+                margin: 0 auto;
             }
         </style>
     </head>
@@ -107,10 +116,17 @@
                 <canvas id="myChart"></canvas>
             </div>
 
+              
             <hr>
-            <div id="idDataPoints" class="field is-horizontal">
-                <label class="label is-small">Chart data points: </label>
-                <input id="chartDataPoints" class="input is-small is-rounded" type="number" placeholder="Chart data points" value=168 min=2 max=1000>
+            <div id="optimize" class="columns">
+                <div id="idDataPoints" class="column field is-horizontal">
+                    <label class="label is-small">Chart data points: </label>
+                    <input id="chartDataPoints" class="input is-small is-rounded" type="number" placeholder="Chart data points" value=840 min=2 max=1000>
+                </div>
+                <div class="field column">
+                    <input id="switchOptimize" type="checkbox" name="switchOptimize" class="switch is-rounded" checked="checked">
+                    <label for="switchOptimize">Optimize</label>
+                </div>
             </div>
             <hr>
             <!-- <div id="distContainer"> -->
@@ -294,8 +310,12 @@
             btnAdd.disabled = true;
 
             updateValues();
+            let isChecked = document.getElementById('switchOptimize').checked;
 
-            let timer = setInterval(iterate, 5);
+            // let timer = setInterval(iterate, 5);
+            let timer = setInterval(() => {
+                iterate(optimize=isChecked);
+            }, 5);
             function stopTimer() {
                 clearInterval(timer);
                 btn.disabled = false;
@@ -307,7 +327,7 @@
 
         btnAdd.addEventListener('click', () => {
             updateValues();
-            iterate();
+            iterate(optimize=false);
         });
 
     </script>

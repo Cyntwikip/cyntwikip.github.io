@@ -9,9 +9,11 @@ const STATUS = Object.freeze({"Susceptible":0, "Exposed":1, "Asymptomatic":2, "S
 // Global variables
 
 chartDataPoints = 168;
+optimizeSkips = 10;
 roleDist = {};
 initialStatusDist = {};
 
+buffer = {};
 historyHours = [];
 historySusceptible = [];
 historyExposed = [];
@@ -289,7 +291,7 @@ function countStatus() {
 }
 
 // Simulate for single time step, save values, and increase time counter
-function iterate() {
+function iterate(optimize=false) {
 
     if (hour==0) {
         // createWorld();
@@ -300,31 +302,77 @@ function iterate() {
     }
 
     let [susceptible, exposed, infected, recovered, dead] = countStatus();
+    let arr1 = ['hour', 'susceptible', 'exposed', 'infected', 'recovered', 'dead'];
+    let arr2 = [hour, susceptible, exposed, infected, recovered, dead];
 
-    this.historyHours.push(hour);
-    this.historySusceptible.push(susceptible);
-    this.historyExposed.push(exposed);
-    this.historyInfected.push(infected);
-    this.historyRecovered.push(recovered);
-    this.historyDead.push(dead);
+    for ([s, val] of zip(arr1, arr2)) {
+        if (!this.buffer[s]) {
+            this.buffer[s] = [];
+        }
+        this.buffer[s].push(val);
+    }
 
-    let history = [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered, this.historyDead];
+    if (!optimize || (optimize && (hour%optimizeSkips)==0)) {
+        this.historyHours.push(...this.buffer['hour']);
+        this.historySusceptible.push(...this.buffer['susceptible']);
+        this.historyExposed.push(...this.buffer['exposed']);
+        this.historyInfected.push(...this.buffer['infected']);
+        this.historyRecovered.push(...this.buffer['recovered']);
+        this.historyDead.push(...this.buffer['dead']);
+        
+        this.buffer = {}
 
-    // let slice = 24*7;
-    let len = historyHours.length;
-    if (len > chartDataPoints) {
-        for (s of history) {
-            if (len + 1 == chartDataPoints) {
-                s.shift();
-            }
-            else {
-                s.reverse().splice(chartDataPoints);
-                s.reverse();
+        let history = [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered, this.historyDead];
+
+        // let slice = 24*7;
+        let len = historyHours.length;
+        if (len > chartDataPoints) {
+            for (s of history) {
+                if (len + 1 == chartDataPoints) {
+                    s.shift();
+                }
+                else {
+                    s.reverse().splice(chartDataPoints);
+                    s.reverse();
+                }
             }
         }
+        
+        stackedLine.update();
     }
-    
-    stackedLine.update();
+
+    // this.historyHours.push(hour);
+    // this.historySusceptible.push(susceptible);
+    // this.historyExposed.push(exposed);
+    // this.historyInfected.push(infected);
+    // this.historyRecovered.push(recovered);
+    // this.historyDead.push(dead);
+
+    // let history = [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered, this.historyDead];
+
+    // // let slice = 24*7;
+    // let len = historyHours.length;
+    // if (len > chartDataPoints) {
+    //     for (s of history) {
+    //         if (len + 1 == chartDataPoints) {
+    //             s.shift();
+    //         }
+    //         else {
+    //             s.reverse().splice(chartDataPoints);
+    //             s.reverse();
+    //         }
+    //     }
+    // }
+
+    // if (optimize) {
+    //     if ((hour%10) == 0) {
+    //         stackedLine.update();
+    //     }
+    // }
+    // else {
+    //     stackedLine.update();
+    // }
+
     this.hour += 1;
 }
 
@@ -338,6 +386,7 @@ function reset() {
     this.historyInfected.length = 0;
     this.historyRecovered.length = 0;
     this.historyDead.length = 0;
+    this.buffer = {};
     
     stackedLine.update();
 }
