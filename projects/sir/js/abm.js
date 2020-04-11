@@ -308,7 +308,7 @@ function iterate() {
     this.historyRecovered.push(recovered);
     this.historyDead.push(dead);
 
-    let history = [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered, this.historyDead]
+    let history = [this.historyHours, this.historySusceptible, this.historyExposed, this.historyInfected, this.historyRecovered, this.historyDead];
 
     // let slice = 24*7;
     let len = historyHours.length;
@@ -337,6 +337,7 @@ function reset() {
     this.historyExposed.length = 0;
     this.historyInfected.length = 0;
     this.historyRecovered.length = 0;
+    this.historyDead.length = 0;
     
     stackedLine.update();
 }
