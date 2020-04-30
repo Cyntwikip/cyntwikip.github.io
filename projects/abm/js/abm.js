@@ -158,6 +158,9 @@ function lookForAnotherRunner(personIndex) {
     for (peopleId of this.houseHasPerson[house]) {
         if (personIndex!=peopleId && people[peopleId].role==ROLES.NonFrontlinerHouse && !people[peopleId].testedPositive) {
             people[peopleId].role = ROLES.NonFrontlinerOut;
+            supermarketNum = Math.floor(Math.random() * nSupermarket);
+            supermarket = this.supermarkets[supermarketNum].getReferenceId();
+            people[peopleId].addSchedule({supermarket: supermarket});
             break;
         }
     }
