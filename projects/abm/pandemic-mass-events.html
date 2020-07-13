@@ -1,0 +1,378 @@
+<html>
+    <head>
+        <title>Pandemic Simulation</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
+        <link rel="stylesheet" href="css/bulma-switch.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <script type="text/javascript" src="js/pandemic-mass-events.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+        <style>
+            /* #idDataPoints {
+                width: 200px;
+                margin: 0 auto;
+            } */
+            /* #idDataPoints input{
+                width: 150px;
+            } */
+            .dist {
+                width: 800px;
+                margin: 0 auto;
+            }
+            #myChart {
+                /* height: 300;  */
+                margin: 0 auto;
+                /* padding-bottom: 50px; */
+                width: 800;
+            }
+            .dist .column input {
+                width: 100px;
+            }
+            /* #distContainer {
+                width: 600px;
+                margin: 0 auto;
+            } */
+            #header {
+                /* width: 900px;  */
+                /* margin: 0 auto; */
+                height: 60px;
+                background-color: slategray;
+            }
+            #header-title {
+                width: 800px; 
+                margin: 0 auto;
+                color: white;
+                font-size: 25px;
+            }
+            #optimize {
+                width: 600px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="header">
+            <div id="header-title">Pandemic Simulation (Mass Events)</div>
+            <!-- <div id="header-subtitle"></div> -->
+        </div>
+        <div style="width: 900px; margin: 0 auto;">
+            <div class="rows" style="width: 800px; margin: 20px auto;">
+                <div class="row columns">
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Number of Seating Floor Areas</label>
+                        <input id="nAssignedAreas" class="input is-small is-rounded" type="number" placeholder="Number of Seating Floor Areas" value=4 min=1>
+                    </div>
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Number of Entrances</label>
+                        <input id="nEntrances" class="input is-small is-rounded" type="number" placeholder="Number of Entrances" value=2 min=1>
+                    </div>
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Number of Exits</label>
+                        <input id="nExits" class="input is-small is-rounded" type="number" placeholder="Number of Exits" value=2 min=1>
+                    </div>
+                </div>
+                <div class="row columns">
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Number of People</label>
+                        <input id="nPeople" class="input is-small is-rounded" type="number" placeholder="Number of People" value=100 min=1>
+                    </div>
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Number of Comfort Rooms</label>
+                        <input id="nCRs" class="input is-small is-rounded" type="number" placeholder="Number of Comfort Rooms" value=2 min=1>
+                    </div>
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">CR Visits per person</label>
+                        <input id="crVisitTimes" class="input is-small is-rounded" type="number" placeholder="CR Visits per person" value=2 min=1>
+                    </div>
+                </div>
+                <div class="row columns">
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Asymptomatic Probability</label>
+                        <input id="pAsymptomatic" class="input is-small is-rounded" type="number" step=0.01 placeholder="Asymptomatic Probability" value=0.3 max=1 min=0>
+                    </div>
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Social Distancing Probability</label>
+                        <input id="pSocialDistancing" class="input is-small is-rounded" type="number" step=0.01 placeholder="Social Distancing Probability" value=1.0 max=1 min=0>
+                    </div>
+                    <div class="column field is-horizontal">
+                        <label class="label is-small">Mask Probability</label>
+                        <input id="pMask" class="input is-small is-rounded" type="number" step=0.01 placeholder="Mask Probability" value=1.0 max=1 min=0>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="buttons is-block has-text-centered">
+                <button id="btnRun" class="button is-primary">Simulate whole event</button>
+                <button onclick="reset();" class="button is-danger">Reset</button>
+                <button id="btnAdd" class="button is-warning">Simulate 1 time step</button>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+              
+            <hr>
+            <div id="optimize" class="columns">
+                <div id="idDataPoints" class="column field is-horizontal">
+                    <label class="label is-small">Chart data points: </label>
+                    <input id="chartDataPoints" class="input is-small is-rounded" type="number" placeholder="Chart data points" value=840 min=2 max=1000>
+                </div>
+                <div class="field column">
+                    <!-- <input id="switchOptimize" type="checkbox" name="switchOptimize" class="switch is-rounded" checked="checked"> -->
+                    <input id="switchOptimize" type="checkbox" name="switchOptimize" class="switch is-rounded">
+                    <label for="switchOptimize">Optimize</label>
+                </div>
+            </div>
+            <hr>
+
+            <h3>Population Distribution</h3>
+            <div class="columns dist">
+                <div class="column field is-vertical">
+                    <label class="label is-small">Initial Susceptible distribution: </label>
+                    <input id="distSusceptible" class="input is-small is-rounded" type="number" placeholder="initial Susceptible" value=95 min=0>
+                </div>
+                <div class="column field is-vertical">
+                    <label class="label is-small">Initial Asymptomatic distribution: </label>
+                    <input id="distAsymptomatic" class="input is-small is-rounded" type="number" placeholder="Initial Asymptomatic" value=0 min=0>
+                </div>
+                <div class="column field is-vertical">
+                    <label class="label is-small">Initial Symptomatic distribution: </label>
+                    <input id="distSymptomatic" class="input is-small is-rounded" type="number" placeholder="Initial Symptomatic" value=5 min=0>
+                </div>
+            </div>
+
+            <h3>Schedule</h3>
+            <div class="columns dist">
+                <div class="column field is-vertical">
+                    <label class="label is-small">Entrance Duration: </label>
+                    <input id="schedIngress" class="input is-small is-rounded" type="number" placeholder="Ingress Duration" value=60 min=15>
+                </div>
+                <div class="column field is-vertical">
+                    <label class="label is-small">Event Duration: </label>
+                    <input id="schedEvent" class="input is-small is-rounded" type="number" placeholder="Event Duration" value=180 min=15>
+                </div>
+                <div class="column field is-vertical">
+                    <label class="label is-small">Egress Duration: </label>
+                    <input id="schedEgress" class="input is-small is-rounded" type="number" placeholder="Egress Duration" value=60 min=15>
+                </div>
+            </div>
+
+            <h3>Duration of person in amenity</h3>
+            <div class="columns dist">
+                <div class="column field is-vertical">
+                    <label class="label is-small">Entrance Duration: </label>
+                    <input id="durEntrance" class="input is-small is-rounded" type="number" placeholder="Entrance Duration" value=15 min=1>
+                </div>
+                <div class="column field is-vertical">
+                    <label class="label is-small">Exit Duration: </label>
+                    <input id="durExit" class="input is-small is-rounded" type="number" placeholder="Exit Duration" value=15 min=0>
+                </div>
+                <div class="column field is-vertical">
+                    <label class="label is-small">Comfort Room Duration: </label>
+                    <input id="durCR" class="input is-small is-rounded" type="number" placeholder="Comfort Room Duration" value=15 min=0>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="content is-small">
+                <h3>Model Assumptions:</h3>
+                <ul class="is-small">
+                    <!-- <li>People are randomly distributed in the houses.</li>
+                    <li>There is at least 1 person going out in each household.</li>
+                    <li>All <strong>Symptomatic</strong> people will have to stay at home.</li>
+                    <li>If the symptomatic person is previously the one going out for a given household, look for another person that can take the role.</li>
+                    <li>Frontliners are assigned to a random hospital Mon-Sun 5am-8pm.</li>
+                    <li>People going out are assigned to a random supermarket.</li>
+                    <li>People going out go to supermarket once a week for 2-6 hrs (random chance).</li>
+                    <li>A person's status is evaluated in every time step.</li> -->
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="content is-small">
+                <h3>Parameter Definitions:</h3>
+                <ul class="is-small">
+                    <!-- <li>Infection rate - probability of a person to infect another person in the same area. This is recalculated for every time step.</li> -->
+                    <li>Asymptomatic probability - probability of an infected person to not show symptoms.</li>
+                    <!-- <li>Incubation period - time until a person will start to show symptoms if symptomatic.</li> -->
+                    <li>Number of people - starting population.</li>
+                    <!-- <li>Number of entrances - number of houses in the simulation.</li>
+                    <li>Number of exits - number of hospitals in the simulation.</li>
+                    <li>Number of Comfort Rooms - number of supermarkets in the simulation.</li>
+                    <li>Recovery rate - probability of a person to recover from the disease. This is recalculated for every time step.</li>
+                    <li>Death rate - probability of a person to die from the disease. This is recalculated for every time step.</li>
+                    <li>Test False Positive Rate - probability that an uninfected person to be flagged as infected.</li>
+                    <li>Test False Negative Rate - probability that an infected person to be flagged as uninfected.</li>
+                    <li>Test Ratio - ratio of the number of the people that will be tested : the population size.</li> -->
+                </ul>
+            </div>
+
+            <hr>
+
+        </div>
+    </body>
+    <script>
+        let data = {
+				labels: this.historyTimeSteps,
+				datasets: [{
+					label: 'Symptomatic',
+					borderColor: window.chartColors.red,
+					backgroundColor: window.chartColors.red,
+					data: historySymptomatic,
+				}, {
+					label: 'Asymptomatic',
+					borderColor: window.chartColors.yellow,
+					backgroundColor: window.chartColors.yellow,
+					data: historyAsymptomatic,
+				}, {
+					label: 'Susceptible',
+					borderColor: window.chartColors.blue,
+					backgroundColor: window.chartColors.blue,
+					data: historySusceptible,
+				}]
+			};
+
+        let options = {
+                animation: false,
+                parsing: false,
+                responsive: false,
+                // maintainAspectRatio: false,
+				title: {
+					display: true,
+					text: 'Pandemic Simulation (Mass Events)'
+				},
+				tooltips: {
+					mode: 'index',
+				},
+				hover: {
+					mode: 'index'
+				},
+				scales: {
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Minute'
+						}
+					}],
+					yAxes: [{
+						stacked: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Counts'
+						}
+					}]
+                },
+                elements: {
+                    line: {
+                        tension: 0 // disables bezier curves
+                    }
+                }
+			};
+
+        let ctx = document.getElementById('myChart').getContext('2d');
+
+        let stackedLine = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+
+        // iterate();
+
+        let btn = document.getElementById('btnRun');
+        let btnAdd = document.getElementById('btnAdd');
+
+        function updateValues() {
+            let value = parseFloat(document.getElementById('pAsymptomatic').value);
+            pAsymptomatic = value ? value: pAsymptomatic; 
+            value = parseFloat(document.getElementById('pSocialDistancing').value);
+            pSocialDistancing = value ? value: pSocialDistancing; 
+            value = parseFloat(document.getElementById('pMask').value);
+            pMask = value ? value: pMask; 
+
+            value = document.getElementById('nPeople').value;   
+            nPeople = value ? parseInt(value): null; 
+            value = document.getElementById('nAssignedAreas').value;
+            nAssignedAreas = value ? parseInt(value): null; 
+            value = document.getElementById('nEntrances').value;
+            nEntrances = value ? parseInt(value): null; 
+            value = document.getElementById('nExits').value;
+            nExits = value ? parseInt(value): null; 
+            value = document.getElementById('nCRs').value;
+            nCRs = value ? parseInt(value): null; 
+            value = document.getElementById('crVisitTimes').value;
+            crVisitTimes = value ? parseInt(value): null; 
+            amenityVisitTimes= {'CR': crVisitTimes};
+
+            value = document.getElementById('chartDataPoints').value;   
+            chartDataPoints = value ? parseInt(value): null; 
+
+            distSusceptible = parseInt(document.getElementById('distSusceptible').value);  
+            distAsymptomatic = parseInt(document.getElementById('distAsymptomatic').value);
+            distSymptomatic = parseInt(document.getElementById('distSymptomatic').value);
+            initialStatusDist = {'Susceptible': distSusceptible,
+                                    'Asymptomatic': distAsymptomatic,
+                                    'Symptomatic': distSymptomatic
+                                };
+
+            schedIngress = parseInt(document.getElementById('schedIngress').value);  
+            schedEvent = parseInt(document.getElementById('schedEvent').value);
+            schedEgress = parseInt(document.getElementById('schedIngress').value);
+            eventSchedule = {'Ingress': schedIngress,
+                                    'Egress': schedEgress,
+                                    'Event': schedEvent
+                            };
+            
+            durEntrance = parseInt(document.getElementById('durEntrance').value);  
+            durExit = parseInt(document.getElementById('durExit').value);
+            durCR = parseInt(document.getElementById('durCR').value);
+            amenityDuration = {'Entrance': durEntrance,
+                                    'Exit': durExit,
+                                    'CR': durCR
+                                };
+        }
+
+        btn.addEventListener('click', () => {
+            btn.disabled = true;
+            btnAdd.disabled = true;
+
+            updateValues();
+            let isChecked = document.getElementById('switchOptimize').checked;
+
+            // let timer = setInterval(iterate, 5);
+            let timer = setInterval(() => {
+                                            iterate(optimize=isChecked);
+                                            checkIfTimesUp();
+                                        }, 5);
+
+            function checkIfTimesUp() {
+                let maxTime = eventSchedule['Ingress'] + eventSchedule['Event'] + eventSchedule['Egress'];
+                if (timeStep >= maxTime + 10) {
+                    stopTimer();
+                }
+            }
+
+            function stopTimer() {
+                clearInterval(timer);
+                btn.disabled = false;
+                btnAdd.disabled = false;
+            }
+
+            // setTimeout(stopTimer, 5000);
+            
+        });
+
+        btnAdd.addEventListener('click', () => {
+            updateValues();
+            iterate(optimize=false);
+        });
+
+    </script>
+</html>

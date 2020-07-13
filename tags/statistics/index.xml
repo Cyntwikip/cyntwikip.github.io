@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on Jude Teves</title>
+    <link>https://cyntwikip.github.io/tags/statistics/</link>
+    <description>Recent content in Statistics on Jude Teves</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
+    <lastBuildDate>Tue, 25 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://cyntwikip.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Animal Crossing Turnip Analysis</title>
+      <link>https://cyntwikip.github.io/project/acnh-turnips/</link>
+      <pubDate>Tue, 25 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/project/acnh-turnips/</guid>
+      <description>&lt;p&gt;I am an avid fan of ACNH, and one of the regular activities I do daily is to check the turnip prices. Turnip is a commodity in ACNH which you can buy for a random price only on Sundays and sell for the rest of the week&amp;ndash;think of this as like a stock exchange.&lt;/p&gt;
+
+&lt;p&gt;The prices vary greatly, and one might think that this is random. Well, not completely&amp;hellip; There is still some degree of predictability; there is a pattern. There are 4 turnip price patterns in the game: Fluctuating, Large Spike, Decreasing, and Small Spike. Luckily, Ninji (his twitter handle) posted the code, which is written in C++, that governs how turnips are priced in the game. For reference, here&amp;rsquo;s the code: &lt;a href=&#34;https://gist.github.com/Treeki/85be14d297c80c8b3c0a76375743325b&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/Treeki/85be14d297c80c8b3c0a76375743325b&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I read the code and got the transition probabilities for each pattern (state). You can see them in the images I have attached. With that data, I treated this as a Markov Chain problem and got the following results:
+1. After 5 weeks (states), it will reach the state of equilibrium&amp;ndash;which means that cumulative transition probabilities won&amp;rsquo;t change.
+2. On average, the chances of getting a specific pattern are as follows:
+- Fluctuating - 34.61%
+- Small Spike - 25.88%
+- Large Spike - 24.75%
+- Decreasing - 14.76%&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;What does this mean?&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;Assuming that you&amp;rsquo;ll only buy and sell in your island, if you keep on buying the same amount of turnips every week and sell them when they are at their peak, you&amp;rsquo;ll gain more on average.
+#DataScience #acnh #animalcrossing&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./ACNH2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

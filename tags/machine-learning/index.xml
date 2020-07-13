@@ -7,10 +7,55 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; {year} Jude Michael Teves</copyright>
-    <lastBuildDate>Wed, 01 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2020 17:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://cyntwikip.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How Computers Understand Human Language</title>
+      <link>https://cyntwikip.github.io/talk/nlp-masterclass/</link>
+      <pubDate>Sat, 02 May 2020 17:00:00 +0000</pubDate>
+      
+      <guid>https://cyntwikip.github.io/talk/nlp-masterclass/</guid>
+      <description>&lt;!-- &lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+Slides can be added in a few ways:
+
+- **Create** slides using Academic&#39;s [*Slides*](https://sourcethemes.com/academic/docs/managing-content/#create-slides) feature and link using `slides` parameter in the front matter of the talk file
+- **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file
+- **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
+
+Further talk details can easily be added to this page using *Markdown* and $\rm \LaTeX$ math code. --&gt;
+
+&lt;p&gt;Online Masterclass on Natural Language Processing (with E-Certificates)&lt;/p&gt;
+
+&lt;p&gt;We invite you to apply in our &amp;ldquo;Online Masterclass on Natural Language Processing.&amp;rdquo; You may access the online application form through this link: &lt;a href=&#34;http://tiny.cc/masterclassNLP&#34; target=&#34;_blank&#34;&gt;http://tiny.cc/masterclassNLP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For this session, we will discuss how these so-called smart machines are able to &amp;ldquo;understand&amp;rdquo; the human language. Our speaker, Jude Michael Teves from the Philippines, will talk about the fundamentals of NLP, as well as share his experience working on the implementation and management of different related projects as part of ADB&amp;rsquo;s innovation team.&lt;/p&gt;
+
+&lt;p&gt;Meet our Speaker&lt;/p&gt;
+
+&lt;p&gt;Jude Michael Teves is an Artificial Intelligence Consultant at the Asian Development Bank (ADB). His current work includes implementing and managing a variety of projects in the fields of computer vision, natural language processing, data analytics, and IoT. In 2019, he earned his Master’s Degree in Data Science at the Asian Institute of Management, where he graduated as Batch Salutatorian with High Distinction, the highest academic award given by the institution.&lt;/p&gt;
+
+&lt;p&gt;Event Information&lt;/p&gt;
+
+&lt;p&gt;This online session is happening on 2nd May 2020 at 4:00pm – 5:00pm (GMT+8). Only thirty (30) applicants will be selected for this opportunity. The event is absolutely FREE and will take place ONLINE via Zoom. We shall be sending you the meeting invite once accepted.&lt;/p&gt;
+
+&lt;p&gt;Deadline of applications is on 30th April 2020, 11:59pm (GMT+8). All confirmed applicants who will attend the seminar will be eligible to receive an electronic certificate signed by the organizers.&lt;/p&gt;
+
+&lt;p&gt;Accomplish the online form through this link: &lt;a href=&#34;http://tiny.cc/masterclassNLP&#34; target=&#34;_blank&#34;&gt;http://tiny.cc/masterclassNLP&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./embeddings.gif&#34; alt=&#34;img 00&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Generating Music using AI</title>
