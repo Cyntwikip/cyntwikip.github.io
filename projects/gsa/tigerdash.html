@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<title>TigerDash</title>
+<head>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='css/style.css' rel='stylesheet' />
+</head>
+<body>
+
+    <nav id="menu"></nav>
+
+    <div id='map'></div>
+    <div class='map-overlay' id='features'><h2>City Statistics</h2><div id='pd'><p>Hover over a city!</p></div></div>
+    <!-- <div class='map-overlay' id='legend'></div> -->
+
+
+</body>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY3ludHdpa2lwIiwiYSI6ImNqbXF6cG1rajA3NHczcXBkZWdpcDl6bXIifQ.up1PqgoqN69t1eukMcUMkg';
+
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        // style: 'mapbox://styles/cyntwikip/ckfuvxid13r2g19mubfjorqxa' // replace this with your style URL // old
+        style: 'mapbox://styles/cyntwikip/ckfv4mld73zi219mu2cmjtwkn' // replace this with your style URL
+    });
+
+    map.on('load', function() {
+        // the rest of the code will go in here
+        // var layers = ['0-10', '10-20', '20-50', '50-100', '100-200', '200-500', '500-1000', '1000+'];
+        // var colors = ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'];
+
+        // for (i = 0; i < layers.length; i++) {
+        //     var layer = layers[i];
+        //     var color = colors[i];
+        //     var item = document.createElement('div');
+        //     var key = document.createElement('span');
+        //     key.className = 'legend-key';
+        //     key.style.backgroundColor = color;
+
+        //     var value = document.createElement('span');
+        //     value.innerHTML = layer;
+        //     item.appendChild(key);
+        //     item.appendChild(value);
+        //     legend.appendChild(item);
+        // }
+
+    });
+    
+
+    map.on('mousemove', function(e) {
+        var states = map.queryRenderedFeatures(e.point, {
+            layers: ['climate resiliency index', 'climate index', 'environment index', 'social index']
+        });
+
+        if (states.length > 0) {
+            document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.name + '</strong></h3>'
+                + '<p>Climate Resiliency:<strong><em>' + states[0].properties['climate resiliency index'] + '</strong> (' + states[0].properties['index legend'] + ')</em></p>'
+                + '<p>Climate Index:<strong><em>' + states[0].properties['climate index'] + '</strong></em></p>'
+                + '<p>Environment Index:<strong><em>' + states[0].properties['environment index'] + '</strong></em></p>'
+                + '<p>Social Index:<strong><em>' + states[0].properties['social index'] + '</strong></em></p>'
+
+                + '<p><strong><em>' + states[0].properties.density + '</strong> people/km<sup>2</sup></em></p>'
+                + '<p><strong><em>' + states[0].properties.rainfall + '</strong> millimeters annual rainfall</em></p>'
+                + '<p><strong><em>' + states[0].properties.elevation + '</strong> meters above sea level</em></p>'
+                + '<p><strong><em>' + states[0].properties.temperature + '</strong> Celsius annual average temperature</em></p>'
+                + '<p><strong><em>' + states[0].properties.natural + '</strong> natural resources (water, trees, grasslands, etc.)</em></p>'
+                + '<p>Green Spaces: <strong><em>' + states[0].properties['green spaces'] + '</strong></em></p>'
+                + '<p>Bodies of Water: <strong><em>' + states[0].properties['bodies of water'] + '</strong></em></p>'
+                + '<p><strong><em>' + states[0].properties.road + '</strong> roads (highways, residential roads, etc.)</p>'
+                ;
+        } else {
+            document.getElementById('pd').innerHTML = '<p>Hover over a city!</p>';
+        }
+    });
+
+    map.getCanvas().style.cursor = 'default';
+    // map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
+
+    // var toggleableLayerIds = [ 'rainfall', 'elevation', 'temperature'];
+    var toggleableLayerIds = ['climate resiliency index', 'climate index', 'environment index', 'social index'];
+
+    
+    function clearToggle() {
+        let menu = document.getElementById('menu');
+        for (var child of menu.children) {
+            child.className = '';
+        }
+
+        for (var i = 0; i < toggleableLayerIds.length; i++) {
+            var clickedLayer = toggleableLayerIds[i];
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+        }
+    }
+
+    // https://jsbin.com/turoremuqi/edit?html,output
+    // Layer Toggle
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+        var id = toggleableLayerIds[i];
+
+        var link = document.createElement('a');
+        link.href = '#';
+        // link.className = 'active';
+        link.className = '';
+        link.textContent = id;
+
+        link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
+
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+            clearToggle();
+
+            if (visibility === 'visible') {
+                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                this.className = '';
+                console.log('visible')
+                console.log(this);
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+        };
+
+        var layers = document.getElementById('menu');
+        layers.appendChild(link);
+    }
+
+    let menu = document.getElementById('menu');
+    menu.firstElementChild.className = 'active';
+    map.setLayoutProperty('climate resiliency index', 'visibility', 'visible');
+
+</script>
+</html>
